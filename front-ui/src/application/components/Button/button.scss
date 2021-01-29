@@ -1,0 +1,189 @@
+@import "~assets/styles/variables";
+
+.hg-button {
+
+  // Sizes
+  $large: (
+    padding: 20px 40px,
+    fontSize: 1.6rem
+  );
+
+  $small: (
+    padding: 5px 10px,
+    fontSize: 0.9rem
+  );
+
+  $medium: (
+    padding: 10px 25px,
+    fontSize: 1.1rem
+  );
+
+  // Colors
+  $primary: (
+    colorBackground: $hg-primary,
+    colorBorder: $hg-primary,
+    colorText: $white,
+    colorBackgroundActive: $hg-primary,
+    colorBorderActive: $white,
+    colorTextActive: $white,
+    colorBackgroundDisabled: #ccc,
+    colorBorderDisabled: #ccc,
+    colorTextDisabled: #c0c
+  );
+
+
+  $primaryTransparent: (
+    colorBackground: $hg-primary-transparent,
+    colorBorder: $hg-primary-transparent,
+    colorText: $white,
+    colorBackgroundActive: $hg-primary-transparent,
+    colorBorderActive: $white,
+    colorTextActive: $white,
+    colorBackgroundDisabled: #fcf,
+    colorBorderDisabled: #fcc,
+    colorTextDisabled: #ffc,
+  );
+
+  $secondary: (
+    colorBackground: $hg-secundary,
+    colorBorder: $hg-secundary,
+    colorText: $white,
+    colorBackgroundActive: $hg-secundary,
+    colorBorderActive: $white,
+    colorTextActive: $white,
+    colorBackgroundDisabled: #000,
+    colorBorderDisabled: #000,
+    colorTextDisabled: #ccc
+  );
+
+  $secundaryTransparent: (
+    colorBackground: $hg-secundary-transparent,
+    colorBorder: $hg-secundary-transparent,
+    colorText: $white,
+    colorBackgroundActive: $hg-secundary-transparent,
+    colorBorderActive: $white,
+    colorTextActive: $white,
+    colorBackgroundDisabled: #aee,
+    colorBorderDisabled: #0fd,
+    colorTextDisabled: #0ff
+  );
+
+  $outlined: (
+    colorBackground: transparent,
+    colorBorder: $white,
+    colorText: $white,
+    colorBackgroundActive: $hg-primary-transparent,
+    colorBorderActive: $hg-primary-transparent,
+    colorTextActive: $white,
+    colorBackgroundDisabled: transparent,
+    colorBorderDisabled: rgb(165, 165, 165),
+    colorTextDisabled: rgb(165, 165, 165)
+  );
+  $nocolor: (
+    colorBackground: transparent,
+    colorBorder: transparent,
+    colorText: $black,
+    colorBackgroundActive: $hg-primary,
+    colorBorderActive: $white,
+    colorTextActive: $white,
+    colorBackgroundDisabled: #aee,
+    colorBorderDisabled: #0fd,
+    colorTextDisabled: #0ff
+  );
+  @mixin colorizeButtons($colorPack) {
+    background-color: map-get($colorPack, colorBackground);
+    border-color: map-get($colorPack, colorBorder);
+    color: map-get($colorPack, colorText);
+
+    &:active,
+    &.hg-button--active,
+    &:focus,
+    &:hover {
+      background-color: map-get($colorPack, colorBackgroundActive);
+      border-color: map-get($colorPack, colorBorderActive);
+      color: map-get($colorPack, colorTextActive);
+    }
+
+    &:disabled,
+    &.hg-button--disabled {
+      background-color: map-get($colorPack, colorBackgroundDisabled);
+      border-color: map-get($colorPack, colorBorderDisabled);
+      color: map-get($colorPack, colorTextDisabled);
+    }
+  }
+
+  @mixin sizeButtons($sizePack) {
+    padding: map-get($sizePack, padding);
+    font-size: map-get($sizePack, fontSize);
+  }
+
+
+  display: inline-block;
+  box-sizing: border-box;
+  background: transparent none;
+  border: 2px solid transparent;
+  font-size: 0.85rem;
+  color: $white;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+  height: auto;
+  user-select: none;
+  transition: color 0.1s linear, background-color 0.1s linear,
+    border 0.1s linear, opacity 0.1s linear, padding 0.1s linear,
+    border-width 0.1s linear;
+
+  @include sizeButtons($medium);
+
+  &:active,
+  &--active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:disabled,
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &.hg-button--large {
+    @include sizeButtons($large);
+  }
+
+  &.hg-button--medium {
+    @include sizeButtons($medium);
+  }
+
+  &.hg-button--small {
+    @include sizeButtons($small);
+  }
+
+  &.hg-button--primary {
+    @include colorizeButtons($primary);
+  }
+
+  &.hg-button--primaryTransparent {
+    @include colorizeButtons($primaryTransparent);
+  }
+
+  &.hg-button--secundaryTransparent {
+    @include colorizeButtons($secundaryTransparent);
+  }
+
+  &.hg-button--secondary {
+    @include colorizeButtons($secondary);
+  }
+  
+  &.hg-button--outlined {
+    @include colorizeButtons($outlined);
+  }
+  &.hg-button--nocolor {
+    @include colorizeButtons($nocolor);
+  }
+  &.hg-button--iconOnly {
+    height: 46px;
+    width: 46px;
+  }
+}

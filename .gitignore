@@ -1,0 +1,15 @@
+
+# dependencies
+front-ui/node_modules
+front-ui/.vscode
+server/node_modules
+
+# testing
+front-ui/coverage
+
+# production
+front-ui/build
+
+front-ui/npm-debug.log*
+front-ui/yarn-debug.log*
+front-ui/yarn-error.log*

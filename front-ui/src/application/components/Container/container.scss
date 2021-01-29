@@ -1,0 +1,12 @@
+ 
+@import "../../../assets/styles/variables";
+
+.hg-container {
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  box-sizing: border-box;
+
+  *:focus {
+    outline: none;
+  }
+}

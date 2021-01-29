@@ -1,0 +1,33 @@
+@import "~assets/styles/variables";
+
+.notification-container {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 999999;
+    .notify-styleee {
+      background-color: $hg-primary-transparent;
+      padding: 15px 30px;
+      color: $white;
+
+    }
+  }
+  
+  .top-right {
+    top: 12px;
+    right: 12px;
+    animation: notify-in-right 0.7s;
+  }
+  
+  
+  @keyframes notify-in-right {
+    from {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes notify-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+  

@@ -1,0 +1,19 @@
+@import "~assets/styles/variables";
+
+.user-profile{
+    &--container{
+
+    }
+    &--header{
+        margin: 0 auto;
+        background-color: #51bcb4bf;
+        width: 290px;
+        height: 100px;
+        padding: 50px 25px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    &--content{
+        text-align: center;
+    }
+}
